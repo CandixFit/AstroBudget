@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgetplaner</title>
+    <link rel="stylesheet" href="style.css">
+<body>
+    <h1>Budgetplaner</h1>
+
+    <div class="welcome">Willkommen bei Astro</div>
+
+    <h2>Neuen Eintrag hinzufügen</h2>
+    <div class="form-group">
+        <label for="date">Datum</label>
+        <input type="date" id="date" name="date">
+    </div>
+    <div class="form-group">
+        <label for="type">Art</label>
+        <select id="type" name="type">
+            <option value="income">Einnahme</option>
+            <option value="expense">Ausgabe</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="description">Beschreibung</label>
+        <input type="text" id="description" name="description">
+    </div>
+    <div class="form-group">
+        <label for="category">Kategorie</label>
+        <input type="text" id="category" name="category">
+    </div>
+    <div class="form-group">
+        <label for="amount">Betrag</label>
+        <input type="number" id="amount" name="amount" step="0.01">
+    </div>
+    <button onclick="addEntry()">Hinzufügen</button>
+
+    <div class="divider"></div>
+
+    <h2>Übersicht</h2>
+    <table id="budgetTable">
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Art</th>
+                <th>Beschreibung</th>
+                <th>Kategorie</th>
+                <th>Betrag</th>
+                <th>Aktionen</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <!-- Weitere Zeilen werden hier dynamisch eingefügt -->
+        </tbody>
+    </table>
+
+    <div class="total" id="totalAmount">Gesamt: €</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
