@@ -28,7 +28,7 @@ function addEntry() {
     updateTotal();
     clearForm();
 }
-
+//Button für Fehleingaben
 function deleteRow(button) {
     const row = button.parentNode.parentNode;
     row.parentNode.removeChild(row);
