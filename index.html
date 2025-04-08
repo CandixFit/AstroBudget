@@ -11,6 +11,7 @@
     <div class="welcome">Willkommen bei Astro</div>
 
     <h2>Neuen Eintrag hinzufügen</h2>
+
     <div class="form-group">
         <label for="date">Datum</label>
         <input type="date" id="date" name="date">
@@ -34,8 +35,11 @@
         <label for="amount">Betrag</label>
         <input type="number" id="amount" name="amount" step="0.01">
     </div>
-    <button onclick="addEntry()">Hinzufügen</button>
-
+    <div id="option-button-container">
+    <button id="add-entry-btn" onclick="addEntry()">Hinzufügen</button>
+    <button id="print-table-button" onclick="printTable()">print</button>
+    <button id="reset-button" onclick="clearForm()">reset</button>
+    </div>
     <div class="divider"></div>
 
     <h2>Übersicht</h2>
@@ -51,7 +55,6 @@
             </tr>
         </thead>
         <tbody>
-
             <!-- Weitere Zeilen werden hier dynamisch eingefügt -->
         </tbody>
     </table>

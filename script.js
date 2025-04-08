@@ -60,3 +60,7 @@ function clearForm() {
     document.getElementById('category').value = '';
     document.getElementById('amount').value = '';
 }
+
+function printTable(){
+    alert("under construction")
+}
