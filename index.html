@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgetplaner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- <- HIER -->
+</head>
+
+<body>
+    <h1>Budgetplaner</h1>
+
+    <div class="welcome">Willkommen bei Astro</div>
+
+    <h2>Neuen Eintrag hinzufügen</h2>
+    <div class="form-group">
+        <label for="date">Datum</label>
+        <input type="date" id="date" name="date">
+    </div>
+    <div class="form-group">
+        <label for="type">Art</label>
+        <select id="type" name="type">
+            <option value="income">Einnahme</option>
+            <option value="expense">Ausgabe</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="description">Beschreibung</label>
+        <input type="text" id="description" name="description">
+    </div>
+    <div class="form-group">
+        <label for="category">Kategorie</label>
+        <input type="text" id="category" name="category">
+    </div>
+    <div class="form-group">
+        <label for="amount">Betrag</label>
+        <input type="number" id="amount" name="amount" step="0.01">
+    </div>
+    <button onclick="addEntry()">Hinzufügen</button>
+    <div id="error-message" style="color: red; margin-top: 10px;"></div>
+    <div id="success-message" style="color: green; margin-top: 10px;"></div>
+    <h3>Suche & Filter</h3>
+    <div class="form-group">
+        <input type="text" id="searchInput" placeholder="Suchbegriff (Beschreibung oder Kategorie)">
+    </div>
+    <div class="form-group">
+        <button id="filterButton">Filtern</button>
+        <select id="typeFilter">
+            <option value="">Alle Arten</option>
+            <option value="income">Einnahme</option>
+            <option value="expense">Ausgabe</option>
+        </select>
+    </div>
+
+
+
+    <div class="divider"></div>
+
+    <h2>Übersicht</h2>
+    <table id="budgetTable">
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Art</th>
+                <th>Beschreibung</th>
+                <th>Kategorie</th>
+                <th>Betrag</th>
+                <th>Aktionen</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <!-- Weitere Zeilen werden hier dynamisch eingefügt -->
+        </tbody>
+    </table>
+
+    <div class="total" id="totalAmount">Gesamt: €</div>
+
+    <div class="chart-section">
+        <h2>Statistiken</h2>
+        <canvas id="categoryChart" height="150"></canvas>
+        <canvas id="typeChart" height="150" style="margin-top: 30px;"></canvas>
+    </div>
+
+
+    <script src="script.js"></script>
+    <div id="editSidebar" class="sidebar">
+    <h3>Eintrag bearbeiten</h3>
+    <form id="editForm">
+        <label>Datum</label>
+        <input type="date" id="editDate">
+
+        <label>Art</label>
+        <select id="editType">
+            <option value="income">Einnahme</option>
+            <option value="expense">Ausgabe</option>
+        </select>
+
+        <label>Beschreibung</label>
+        <input type="text" id="editDescription">
+
+        <label>Kategorie</label>
+        <input type="text" id="editCategory">
+
+        <label>Betrag</label>
+        <input type="number" id="editAmount" step="0.01">
+
+        <button type="submit">Speichern</button>
+        <button type="button" onclick="closeSidebar()">Abbrechen</button>
+    </form>
+</div>
+
+</body>
+</html>
